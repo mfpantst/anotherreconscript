@@ -39,14 +39,7 @@ if test "$dirsearch" = "ON"; then
   while IFS= read -r  line
   do
     touch "$output"/dirsearch/"$line".txt
-    while IFS= read -r linesub
-    do
-      cat > "$output"/dirsearch/tmp.txt
-      python3 "$dirsearchpath"/dirsearch.py --url="$linesub" -E --random-agents --simple-report="$output"/dirsearch/tmp.txt
-      cat "$output"/dirsearch/tmp.txt >> "$output"/dirsearch/"$line".txt
-      rm "$output"/dirsearch/tmp.txt
-    done < "$output"/httprobe/"$line".txt
-    cat "$output"/dirsearch/"$line".txt >> "$output"/combined/"$line".txt
+    python3 "$dirsearchpath"/dirsearch.py --url-list="$output"/combined/"$line".txt -E --random-agents --simple-report="$output"/dirsearch/"$line".txt
   done < "$input"
 fi
 
