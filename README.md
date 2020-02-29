@@ -13,6 +13,8 @@ Use the runRecon.sh script to run everthing- this requires having certain tools 
 
 You can use config.sh to control the program and set file directories for individual components and where to store outputs.
 
+When you first download you'll need to make executable runRecon.sh (chmod +x ./runRecon.sh)
+
 If you find this useful, and want to modify- feel free, I think I set the code up in a fairly modulary way so you could add other domain enumerations, or testing as needed.
 
 To-Do:
