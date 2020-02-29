@@ -19,7 +19,7 @@ If you find this useful, and want to modify- feel free, I think I set the code u
 
 
 ## Meta
-Josh – [@jneeriem](https://twitter.com/jneeriem) https://blog.neemosint.com/ – joshua@neemosint.com
+Josh –twitter: [@jneeriem](https://twitter.com/jneeriem) -site: https://blog.neemosint.com/ -email: joshua@neemosint.com
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
