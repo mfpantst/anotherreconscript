@@ -31,7 +31,7 @@ if test "$httprobe" = "ON"; then
     cd ..
     cat "$output"/httprobe/"$line".txt > "$output"/combined/"$line".txt
     sort -u "$output"/combined/"$line".txt > "$output"/combined/"$line"srt.txt
-    cp "$output"/combined/"$line"srt.txt "$output"/combined/"$line".tx
+    cp "$output"/combined/"$line"srt.txt "$output"/combined/"$line".txt
     rm "$output"/combined/"$line"srt.txt
 done < "$input"
 fi
