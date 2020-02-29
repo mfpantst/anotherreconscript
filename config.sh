@@ -16,7 +16,4 @@ dirsearch="ON"
 aquatone="ON"
 arjun="ON"
 
-runxss="OFF"
-XSSCONFIG="ON"
-XSSPAYLOAD="OFF"
-XSSTRIKE="OFF"
+runxss="ON
