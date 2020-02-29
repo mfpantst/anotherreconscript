@@ -111,7 +111,7 @@ if test "$runxss" = "ON"; then
   while IFS= read -r  line
   do
     touch "$output"/runxss/xsstrike/"$line".log
-    python3 "$xsstrikepath"/xsstrike.py --seeds "$output"/combined/"$line" -t 7 --file-log-level INFO --log-file "$output"/runxss/xsstrike/"$line".log
+    python3 "$xsstrikepath"/xsstrike.py --seeds "$output"/combined/"$line".txt -t 7 --file-log-level INFO --log-file "$output"/runxss/xsstrike/"$line".log
   done < "$input"
 fi 
 
