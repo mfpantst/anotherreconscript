@@ -30,6 +30,7 @@ if test "$httprobe" = "ON"; then
     cd "$output"
     cd ..
     cat "$output"/httprobe/"$line".txt > "$output"/combined/"$line".txt
+    sort -u "$output"/combined/"$line".txt
 done < "$input"
 fi
 
@@ -39,8 +40,9 @@ if test "$dirsearch" = "ON"; then
   while IFS= read -r  line
   do
     touch "$output"/dirsearch/"$line".txt
-    python3 "$dirsearchpath"/dirsearch.py --url-list="$output"/combined/"$line".txt -E --random-agents --simple-report="$output"/dirsearch/"$line".txt
+    python3 "$dirsearchpath"/dirsearch.py -b --url-list="$output"/combined/"$line".txt -x 301,403,400 -e html,json,php --simple-report="$output"/dirsearch/"$line".txt
     cat "$output"/dirsearch/"$line".txt >> "$output"/combined/"$line".txt
+    sort -u "$output"/combined/"$line".txt
   done < "$input"
 fi
 
