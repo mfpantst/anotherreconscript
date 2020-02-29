@@ -30,7 +30,8 @@ if test "$httprobe" = "ON"; then
     cd "$output"
     cd ..
     cat "$output"/httprobe/"$line".txt > "$output"/combined/"$line".txt
-    sort -u "$output"/combined/"$line".txt
+    sort -u "$output"/combined/"$line".txt > "$output"/combined/"$line"srt.txt
+    cp "$output"/combined/"$line"srt.txt "$output"/combined/"$line".tx
 done < "$input"
 fi
 
@@ -42,7 +43,8 @@ if test "$dirsearch" = "ON"; then
     touch "$output"/dirsearch/"$line".txt
     python3 "$dirsearchpath"/dirsearch.py -b --url-list="$output"/combined/"$line".txt -x 301,403,400,421 -e html,json,php --simple-report="$output"/dirsearch/"$line".txt
     cat "$output"/dirsearch/"$line".txt >> "$output"/combined/"$line".txt
-    sort -u "$output"/combined/"$line".txt
+    sort -u "$output"/combined/"$line".txt > "$output"/combined/"$line"srt.txt
+    cp "$output"/combined/"$line"srt.txt "$output"/combined/"$line".txt
   done < "$input"
 fi
 
