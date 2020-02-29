@@ -7,7 +7,7 @@ rm -r "$output"/
 mkdir "$output"
 mkdir "$output"/combined
 while IFS= read -r line; do 
-  touch "$output"/"$line".txt
+  touch "$output"/combined/"$line".txt
 done < "$input"
 
 #Sublis3r domain enumeration
