@@ -76,7 +76,7 @@ fi
 #Code for running XSS testing against targets
 if test "$runxss" = "ON"; then
   mkdir "$output"/runxss
-  mkdir "$output"/runxxs/paramslist 
+  mkdir "$output"/runxss/paramslist 
 
   #Find all JSON outputs and make a flat list of urls + parameters
   while IFS= read -r line
