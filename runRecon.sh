@@ -72,7 +72,7 @@ if test "$runbuiltwith" = "ON"; then
   fi
   while IFS= read -r  line
   do
-    python3 runbwscrape.py -d "$output"/combined -i "$line" -o "$output"/builtwith -a "$builtwithapi"
+    python3 runbwscrape.py -d "$output"/combined -i "$line" -o "$output"/builtwith/ -a "$builtwithapi"
   done < "$input"
 fi
 
