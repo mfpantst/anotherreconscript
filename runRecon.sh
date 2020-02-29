@@ -38,11 +38,11 @@ if test "$dirsearch" = "ON"; then
   mkdir "$output"/dirsearch 
   while IFS= read -r  line
   do
+    touch "$output"/dirsearch/"$line".txt
     while IFS= read -r linesub
     do
       cat > "$output"/dirsearch/tmp.txt
       python3 "$dirsearchpath"/dirsearch.py --url="$linesub" -E --random-agents --simple-report="$output"/dirsearch/tmp.txt
-      cat > "$output"/dirsearch/"$line".txt
       cat "$output"/dirsearch/tmp.txt >> "$output"/dirsearch/"$line".txt
       rm "$output"/dirsearch/tmp.txt
     done < "$output"/httprobe/"$line".txt
@@ -111,7 +111,7 @@ if test "$runxss" = "ON"; then
   while IFS= read -r  line
   do
     touch "$output"/runxss/xsstrike/"$line".log
-    python3 "$xsstrikepath"xsstrike.py -u "$output"/combined/"$line" -t 7 --file-log-level INFO --log-file "$output"/runxss/xsstrike/"$line".log
+    python3 "$xsstrikepath"/xsstrike.py -u "$output"/combined/"$line" -t 7 --file-log-level INFO --log-file "$output"/runxss/xsstrike/"$line".log
   done < "$input"
 fi 
 
