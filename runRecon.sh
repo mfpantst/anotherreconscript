@@ -40,6 +40,7 @@ if test "$dirsearch" = "ON"; then
   do
     touch "$output"/dirsearch/"$line".txt
     python3 "$dirsearchpath"/dirsearch.py --url-list="$output"/combined/"$line".txt -E --random-agents --simple-report="$output"/dirsearch/"$line".txt
+    cat "$output"/dirsearch/"$line".txt >> "$output"/combined/"$line".txt
   done < "$input"
 fi
 
