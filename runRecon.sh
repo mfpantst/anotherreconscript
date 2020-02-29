@@ -32,6 +32,7 @@ if test "$httprobe" = "ON"; then
     cat "$output"/httprobe/"$line".txt > "$output"/combined/"$line".txt
     sort -u "$output"/combined/"$line".txt > "$output"/combined/"$line"srt.txt
     cp "$output"/combined/"$line"srt.txt "$output"/combined/"$line".tx
+    rm "$output"/combined/"$line"srt.txt
 done < "$input"
 fi
 
@@ -45,6 +46,7 @@ if test "$dirsearch" = "ON"; then
     cat "$output"/dirsearch/"$line".txt >> "$output"/combined/"$line".txt
     sort -u "$output"/combined/"$line".txt > "$output"/combined/"$line"srt.txt
     cp "$output"/combined/"$line"srt.txt "$output"/combined/"$line".txt
+    rm "$output"/combined/"$line"srt.txt
   done < "$input"
 fi
 
