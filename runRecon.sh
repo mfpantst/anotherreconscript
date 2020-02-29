@@ -82,7 +82,7 @@ if test "$runxss" = "ON"; then
   while IFS= read -r line
   do 
     touch "$output"/runxss/paramslist/"$line".txt
-    python3 makeparams.py -f "$output"/combined/"$line" >> "$output"/runxss/paramslist/"$line".txt
+    python3 makeparams.py -f "$output"/arjun/"$line".json >> "$output"/runxss/paramslist/"$line".txt
   done < "$input"
 
   # Simple FFUF run using a payloads input file- for xss testing
