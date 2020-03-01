@@ -90,7 +90,7 @@ if test "$dirsearch" = "ON"; then
     while IFS= read -r individualurl
     do
     #Nested loop for testing each line of the combined results so far goes here
-      python3 "$dirsearchpath"/dirsearch.py -b -u "$individualurl" -x 301,403,400,421 -e html,json,php --simple-report="$output"/dirsearch/tmp.txt
+      python3 "$dirsearchpath"/dirsearch.py -b -u "$individualurl" -x 301,302,403,400,421,500 -e html,json,php --simple-report="$output"/dirsearch/tmp.txt
       cat "$output"/dirsearch/tmp.txt >> "$output"/dirsearch/"$line".txt
       rm "$output"/dirsearch/tmp.txt
     done <"$output"/combined/"$line".txt
