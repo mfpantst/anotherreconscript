@@ -84,10 +84,19 @@ if test "$dirsearch" = "ON"; then
   fi
   while IFS= read -r  line
   do
-    touch "$output"/dirsearch/"$line".txt
-    python3 "$dirsearchpath"/dirsearch.py -b --url-list="$output"/combined/"$line".txt -x 301,403,400,421 -e html,json,php --simple-report="$output"/dirsearch/"$line".txt
+    # initialize master file 
+    touch "$output"/dirsearch/"$line".txt  
+    echo "$line"
+    while IFS= read -r individualurl
+    do
+    #Nested loop for testing each line of the combined results so far goes here
+      python3 "$dirsearchpath"/dirsearch.py -b -u "$individualurl" -x 301,403,400,421 -e html,json,php --simple-report="$output"/dirsearch/tmp.txt
+      cat "$output"/dirsearch/tmp.txt >> "$output"/dirsearch/"$line".txt
+      rm "$output"/dirsearch/tmp.txt
+    done <"$output"/combined/"$line".txt
+    
+    #Aggregate results and de-duplicate
     cat "$output"/dirsearch/"$line".txt >> "$output"/combined/"$line".txt
-
     #de-duplicate list of urls
     sort -u "$output"/combined/"$line".txt > "$output"/combined/"$line"srt.txt
     cp "$output"/combined/"$line"srt.txt "$output"/combined/"$line".txt
