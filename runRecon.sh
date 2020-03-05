@@ -17,6 +17,7 @@ fi
 #Pre-Set up combined files for storing aggregated domain and directory results
 while IFS= read -r line; do
   touch "$output"/combined/"$line".txt
+  echo "$line" >> "$line".txt 
 done < "$input"
 
 #Sublis3r domain enumeration
@@ -192,6 +193,8 @@ if test "$runxss" = "ON"; then
   do
     touch "$output"/runxss/xsstrike/"$line".log
     python3 "$xsstrikepath"/xsstrike.py --seeds "$output"/combined/"$line".txt -t 7 --file-log-level INFO --log-file "$output"/runxss/xsstrike/"$line".log
+     touch "$output"/runxss/xsstrike/"$line"params.log
+    python3 "$xsstrikepath"/xsstrike.py --seeds "$output"/combined/"$line".txt -t 7 --params --file-log-level INFO --log-file "$output"/runxss/xsstrike/"$line"params.log
     touch "$output"/runxss/xsstrike/"$line"crawl.log
     python3 "$xsstrikepath"/xsstrike.py -u "$line" --crawl -l 3 -t 7 --file-log-level INFO --log-file "$output"/runxss/xsstrike/"$line"crawl.log
     touch "$output"/runxss/xsstrike/"$line"blind.log
