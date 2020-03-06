@@ -17,7 +17,7 @@ fi
 #Pre-Set up combined files for storing aggregated domain and directory results
 while IFS= read -r line; do
   touch "$output"/combined/"$line".txt
-  echo "$line" >> "$line".txt 
+  echo "$line" >> "$output"/combined/"$line".txt 
 done < "$input"
 
 #Sublis3r domain enumeration
